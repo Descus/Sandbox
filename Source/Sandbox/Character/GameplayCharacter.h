@@ -19,7 +19,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Item")
 	AUsableItem* Item;		
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement")
+	float ForwardSpeed;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement")
+	float StrafeSpeed;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement")
+	float TurnSpeed;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -31,4 +38,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void UseItem();
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	void Turn(float Value);
+	void Pitch(float Value);
 };

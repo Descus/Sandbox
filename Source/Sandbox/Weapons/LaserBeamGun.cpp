@@ -51,7 +51,7 @@ void ALaserBeamGun::TraceLine(FVector Start, FVector ShotDirection, float Distan
 	bool hit = true;
 	do
 	{
-		if(GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_Visibility, CollisionParams))
+		if(GetWorld()->LineTraceSingleByChannel(OutHit, Start, End, ECC_GameTraceChannel1, CollisionParams))
 		{
 			if(OutHit.Actor->ActorHasTag(TEXT("Reflects")))
 			{

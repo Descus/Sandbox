@@ -37,3 +37,24 @@ void AGameplayCharacter::UseItem()
 	}
 }
 
+void AGameplayCharacter::MoveForward(float Value)
+{
+	GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Cyan, "Forward");
+	SetActorLocation(GetActorLocation() + GetActorForwardVector() * Value * ForwardSpeed);
+}
+
+void AGameplayCharacter::MoveRight(float Value)
+{
+	SetActorLocation(GetActorLocation() + GetActorRightVector() * Value * StrafeSpeed);
+}
+
+void AGameplayCharacter::Turn(float Value)
+{
+	SetActorRelativeRotation(FRotator(0,1,0) * Value * TurnSpeed);
+}
+
+void AGameplayCharacter::Pitch(float Value)
+{
+	SetActorRelativeRotation(FRotator(1,0,0) * Value * TurnSpeed);
+}
+

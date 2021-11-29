@@ -18,11 +18,16 @@ public:
 	UPROPERTY()
 	AGameplayCharacter* PossesedCharacter;
 
-	
 protected:
+	virtual void SetupInputComponent() override;
 	virtual void BeginPlay() override;
 
 private:
 	void UseItemInHand();
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+	void Turn(float Value);
+	void Pitch(float Value);
+	
 	void SetupInputBindings();
 };
